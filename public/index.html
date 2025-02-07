@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Siswa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+
+    <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold mb-4">Tambah Siswa</h2>
+        <form id="studentForm" class="space-y-4">
+            <input type="text" id="name" placeholder="Nama Lengkap" class="w-full p-2 border rounded">
+            <input type="date" id="ttl" class="w-full p-2 border rounded">
+            <input type="text" id="nik" placeholder="NIK" class="w-full p-2 border rounded">
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded">Tambah</button>
+        </form>
+
+        <h2 class="text-xl font-bold mt-6">Daftar Siswa</h2>
+        <table class="w-full mt-4 border-collapse border">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border p-2">Nama Lengkap</th>
+                    <th class="border p-2">TTL</th>
+                    <th class="border p-2">NIK</th>
+                    <th class="border p-2">Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="studentTable"></tbody>
+        </table>
+        <button onclick="logout()" class="bg-red-500 text-white py-2 px-4 rounded mt-4">Logout</button>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

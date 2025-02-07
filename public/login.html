@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-6 rounded-lg shadow-md w-80">
+        <h2 class="text-xl font-bold mb-4">Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" class="w-full p-2 border rounded mb-2">
+            <input type="password" id="password" placeholder="Password" class="w-full p-2 border rounded mb-4">
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+
+            if (response.ok) {
+                localStorage.setItem('token', await response.text());
+                window.location.href = 'index.html';
+            } else {
+                alert('Login gagal!');
+            }
+        });
+    </script>
+</body>
+</html>
